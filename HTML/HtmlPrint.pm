@@ -87,6 +87,9 @@ sub body {
 
 	<!-- Header -->
 	<div id="header">
+		<noscript>
+		<p>ブラウザの設定で、JavaScriptを、有効にして下さい。</p>
+		</noscript>
 		<h1>これはみだし</h1>
 	</div>
 	<!-- Heaer end -->
