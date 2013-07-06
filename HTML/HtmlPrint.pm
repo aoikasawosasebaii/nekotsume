@@ -11,6 +11,10 @@ sub css {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 		color: rgb(21, 221, 238);
 	}
+	#gmap_canvas {
+		width: 500px;
+		height: 300px;
+	}
 </style>
 EOS_CSS
 }
@@ -28,7 +32,7 @@ function initialize() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		navigationControl: false
 	};
-	map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+	map = new google.maps.Map(document.getElementById("gmap_canvas"), opts);
 }
 function zoomIn() {
 	var level = map.getZoom();
@@ -81,17 +85,17 @@ sub body {
 	my $body =<<'EOS';
 <div id="all">
 
-	<!-- HEADER start -->
+	<!-- Header -->
 	<div id="header">
 		<h1>これはみだし</h1>
 	</div>
-	<!-- HEADER end -->
+	<!-- Heaer end -->
 
-	<!-- Main start -->
+	<!-- Main -->
 	<div id="main">
 		<p>AAAAAAAAAAA</p>
 		<div id="gmap">
-			<div id="map_canvas" style="width:500px; height:300px"></div>
+			<div id="gmap_canvas"></div>
 			<p>
 				<input type="button" id="zoomin" value="zoom in" onclick="zoomIn()">
 				<input type="button" id="zoomout" value="zoom out" onclick="zoomOut()">
@@ -100,11 +104,11 @@ sub body {
 	</div>
 	<!-- Main end -->
 
-	<!-- FOOTER start -->
+	<!-- Footer -->
 	<div id="footer">
 		<h1>FOOTER</h1>
 	</div>
-	<!-- FOOTER end -->
+	<!-- Footer end -->
 </div>
 </body>
 </html>
