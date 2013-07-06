@@ -20,11 +20,12 @@ EOS_CSS
 }
 sub js {
 	my $js=<<"EOS_JS";
+<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script language="javascript" type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script language="javascript" type="text/javascript">
 var map;
 /* google map */
-function initialize() {
+\$(document).ready(function(){
 	var latlng = new google.maps.LatLng(35.705576,109.751952);
 	var opts = {
 		zoom: 5,
@@ -33,7 +34,7 @@ function initialize() {
 		navigationControl: false
 	};
 	map = new google.maps.Map(document.getElementById("gmap_canvas"), opts);
-}
+});
 function zoomIn() {
 	var level = map.getZoom();
 	level ++;
@@ -67,7 +68,6 @@ sub head {
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta name="Author" content="Shouhei Itoh">
-
 <meta name="keywords" content=${keywords}>
 <meta name="description" content=${description}>
 <meta name="classification" content=${classification}>
@@ -76,13 +76,13 @@ sub head {
 $css
 $js
 </head>
-<body onload="initialize()">
 EOS
 	return $head;
 }
 
 sub body {
 	my $body =<<'EOS';
+<body>
 <div id="all">
 
 	<!-- Header -->
