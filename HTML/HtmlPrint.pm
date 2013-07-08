@@ -6,8 +6,10 @@ sub new {
 }
 sub css {
 	my $css=<<"EOS_CSS"
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/tabs.css">
-<link href="jquery-ui-1.10.3.custom/css/south-street/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css">
+<link href="jquery-ui-1.10.3.custom/css/south-street/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	body {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
@@ -40,7 +42,15 @@ sub js {
 <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script language="javascript" type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script language="javascript" type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/script.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.lightbox-0.5.min.js"></script>
+
 <script language="javascript" type="text/javascript">
+$(function() {
+  $('#gallery a').lightBox();
+});
+
 (function($){
         $(function(){
                 $('#tabs').tabs();
@@ -109,7 +119,8 @@ sub body {
 			<ul>
 				<li><a href="#tab1">Top</a></li>
 				<li><a href="#tab2">Menu</a></li>
-				<li><a href="#tab3">Contact</a></li>
+				<li><a href="#tab3">Gallery</a></li>
+				<li><a href="#tab4">Contact</a></li>
 			</ul>
 
 			<div id="tab1">
@@ -136,6 +147,34 @@ sub body {
 				</table>
 			</div>
 			<div id="tab3">
+				<div id="wrapper">
+					<div id="content">
+						<div class="inner1">
+							<div class="inner2">
+								<div class="inner3">
+									<div id="main">
+										<ul id="gallery">
+											<li><a href="images/pl01.jpg"><img src="images/p01.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl02.jpg"><img src="images/p02.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl03.jpg"><img src="images/p03.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl04.jpg"><img src="images/p04.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl05.jpg"><img src="images/p05.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl06.jpg"><img src="images/p06.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl07.jpg"><img src="images/p07.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl08.jpg"><img src="images/p08.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl09.jpg"><img src="images/p09.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl10.jpg"><img src="images/p10.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl11.jpg"><img src="images/p11.jpg" alt="" width="180" height="135"></a></li>
+											<li><a href="images/pl12.jpg"><img src="images/p12.jpg" alt="" width="180" height="135"></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tab4">
 			</div>
 		</div>
 	</div>
