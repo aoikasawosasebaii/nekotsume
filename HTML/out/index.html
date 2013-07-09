@@ -17,8 +17,15 @@
 <style type="text/css">
 	body {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-		color:rgb(243, 247, 234);
 		background-color:rgb(146, 70, 19); 
+	}
+	#firstline {
+		color: rgb(228, 191, 75);
+	}
+	#menuplan {
+	}
+	.center_ph {
+		text-align:center;
 	}
 	#title { 
 		color:rgb(1, 1, 1);
@@ -31,9 +38,13 @@
 	}
 	
 	#gmap_canvas {
-		width: 400px;
+		width: 500px;
 		height: 300px;
 		float: right;
+		margin-right:10px;
+	}
+	#access {
+		margin-left:30px;
 	}
 	/*
 	 #clear { clear: both; } 
@@ -57,23 +68,31 @@ $(function() {
                 $('#tabs').tabs();
         }); 
 })(jQuery);
+
 var map;
 /* google map */
 $(document).ready(function(){
-	var latlng = new google.maps.LatLng(35.499466 , 139.407067);
-	var opts = {
-		zoom: 17,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		navigationControl: false
-
-	};
-	map = new google.maps.Map(document.getElementById("gmap_canvas"), opts);
-	var marker = new google.maps.Marker({
-		icon: "http://maps.google.co.jp/mapfiles/ms/icons/red-pushpin.png",
-		position: map.getCenter(),
-		map: map,
-		title: 'Here'
+	$("#contact").click(function(){
+		var latlng = new google.maps.LatLng(35.499466 , 139.407067);
+		var opts = {
+			zoom: 17,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			navigationControl: false
+		};
+		map = new google.maps.Map(document.getElementById("gmap_canvas"), opts);
+		var marker = new google.maps.Marker({
+			icon: "http://maps.google.co.jp/mapfiles/ms/icons/red-pushpin.png",
+			position: map.getCenter(),
+			map: map,
+			title: 'Here'
+		});
+	});
+	$("#gal").click(function(){
+		 $('#Wrapper').css( 'min-width', '100px');
+	});
+	$("#top,#menu,#contact").click(function(){
+		 $('#Wrapper').css( 'min-width', '1000px');
 	});
 });
 /* google map end */
@@ -82,42 +101,38 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="Wrapper">
-        <p>秋葉原のプライベートネイルサロン「Cradle（クレイドル）」です。</p>
+        <div id=firstline>秋葉原のプライベートネイルサロン「Cradle（クレイドル）」です。</div>
         <div id="Contents">
 		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">Tel:03-6206-0947</span></div>
 		<div id="tabs">
 			<ul>
-				<li><a href="#tab1">Top</a></li>
-				<li><a href="#tab2">Menu</a></li>
-				<li><a href="#tab3">Gallery</a></li>
-				<li><a href="#tab4">Contact</a></li>
+				<li id="top"><a href="#tab1">Top</a></li>
+				<li id="menu"><a href="#tab2">Menu</a></li>
+				<li id="gal"><a href="#tab3">Gallery</a></li>
+				<li id="contact"><a href="#tab4">Contact</a></li>
 			</ul>
 
 			<div id="tab1">
 				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
-				<div id="gmap_canvas"></div>
-				<p>Acess</p>
-				<p>Adress: 千代田区外神田4-9-7
-				<br>JR線「秋葉原」駅電気街口徒歩5分</p>
-				<p>Tel:1234-56789</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
-				<p>XXXXXXXXX</p>
+				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
+				<img src="images/original/head_img.jpg" alt="" class="photo01">
+				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
+				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
 			</div>
 			<div id="tab2">
 				<table id="menuplan"> 
-					<tr><td>料金</td></tr>
-					<tr><td>ハンドクリアジェル（整爪＞しっかりとした甘皮周りのケア込み）</td><td class="nedan">10本/6000円</td></tr>
-					<tr><td>ジェルオフ（付け替えの場合）</td>                                <td class="nedan">1本/200円</td></tr>
+					<tr><td colspan="2" class="t_top">料金</td></tr>
+					<tr><td class="t_line01">ハンドクリアジェル（整爪＞しっかりとした甘皮周りのケア込み）</td><td class="t_line01">10本/6000円</td></tr>
+					<tr><td class="t_line02">ジェルオフ（付け替えの場合）</td>                                <td class="t_line02">1本/200円</td></tr>
+					<tr><td class="t_line01">ハンドクリアジェル（整爪＞しっかりとした甘皮周りのケア込み）</td><td class="t_line01">10本/6000円</td></tr>
+					<tr><td class="t_line02">ジェルオフ（付け替えの場合）</td>                                <td class="t_line02">1本/200円</td></tr>
+					<tr><td class="t_line01">ハンドクリアジェル（整爪＞しっかりとした甘皮周りのケア込み）</td><td class="t_line01">10本/6000円</td></tr>
+					<tr><td class="t_line02">ジェルオフ（付け替えの場合）</td>                                <td class="t_line02">1本/200円</td></tr>
 				</table>
 			</div>
 			<div id="tab3">
-				<div id="wrapper">
+				<p>Neil Gallery</@>
+				<div id="cover">
 					<div id="content">
 						<div class="inner1">
 							<div class="inner2">
@@ -145,6 +160,27 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<div id="tab4">
+				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
+				<div class="center_ph">
+				<img src="images/original/head_img.jpg" alt="" class="ph10">
+				</div>
+				<div id="gmap_canvas"></div>
+				<div id="access">
+				<p>Access</p>
+				<br>
+				<br>
+				<br>
+				<p>Adress: 千代田区外神田4-9-7
+				<br>JR線「秋葉原」駅電気街口徒歩5分</p>
+				<p>Tel:1234-56789</p>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				</div>
 			</div>
 		</div>
 	</div>

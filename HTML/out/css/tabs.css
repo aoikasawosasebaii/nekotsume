@@ -8,7 +8,8 @@ body {
 }
 #Wrapper {
 	text-align:left;
-	width:80%;
+	max-width:1000px;
+	min-width:1000px;
 	margin:10px auto;
 }
 h1 {
@@ -55,4 +56,33 @@ ul#Navi li#NaviContact a {
 	clear:both;
 	background-color:#E2E2E2;
 	padding:20px;
+}
+
+table {
+	border: rgb(231, 193, 186) 1px solid;
+	border-collapse: collapse;
+	font-size: 11px;
+	width: 100%;
+	color: rgb(187, 43, 86);
+} 
+table th.t_top {
+	border: #A84673 1px dashed;
+	background-color: #35140C;
+	text-align: left;
+	padding: 10px;
+	font: bold;
+} 
+table td.t_line01 {
+	border: #A84673 1px dashed;
+	background-color:rgb(235, 240, 223); 
+	vertical-align: top;
+	text-align: left;
+	padding: 10px;
+}
+table td.t_line02 {
+	border: #A84673 1px dashed;
+	background-color: rgb(168, 211, 104);
+	vertical-align: top;
+	text-align: left;
+	padding: 10px;
 }
