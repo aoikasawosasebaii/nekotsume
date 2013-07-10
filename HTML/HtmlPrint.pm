@@ -18,6 +18,9 @@ sub css {
 	#firstline {
 		color: rgb(228, 191, 75);
 	}
+	#tabs_navie_original {
+		font-family: 'Monotype Corsiva';
+	}
 	#menuplan {
 	}
 	.center_ph {
@@ -108,16 +111,13 @@ sub head {
 	my $classification='"カテゴリ名をいれる"';
 
 	my $head =<<"EOS";
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
+<meta charset="UTF-8">
 <meta name="Author" content="Shouhei Itoh">
 <meta name="keywords" content=${keywords}>
 <meta name="description" content=${description}>
-<meta name="classification" content=${classification}>
 
 <title>$TITLE</title>
 $css
@@ -133,9 +133,9 @@ sub body {
 <div id="Wrapper">
         <div id=firstline>秋葉原のプライベートネイルサロン「Cradle（クレイドル）」です。</div>
         <div id="Contents">
-		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">Tel:03-6206-0947</span></div>
+		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　XX駅より、徒歩３分　Tel:03-6206-0947</span></div>
 		<div id="tabs">
-			<ul>
+			<ul id="tabs_navie_original">
 				<li id="top"><a href="#tab1">Top</a></li>
 				<li id="menu"><a href="#tab2">Menu</a></li>
 				<li id="gal"><a href="#tab3">Gallery</a></li>
@@ -148,6 +148,8 @@ sub body {
 				<img src="images/original/head_img.jpg" alt="" class="photo01">
 				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
 				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
+
+
 			</div>
 			<div id="tab2">
 				<table id="menuplan"> 
@@ -161,7 +163,7 @@ sub body {
 				</table>
 			</div>
 			<div id="tab3">
-				<p>Neil Gallery</@>
+				<p>Neil Gallery</p>
 				<div id="cover">
 					<div id="content">
 						<div class="inner1">
