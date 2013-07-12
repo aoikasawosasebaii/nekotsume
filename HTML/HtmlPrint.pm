@@ -6,10 +6,10 @@ sub new {
 }
 sub css {
 	my $css=<<"EOS_CSS"
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/tabs.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css">
-<link href="jquery-ui-1.10.3.custom/css/south-street/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/south-street/jquery-ui-1.10.3.custom.min.css">
 <style type="text/css">
 	body {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
@@ -53,14 +53,14 @@ EOS_CSS
 }
 sub js {
 	my $js=<<'EOS_JS';
-<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script language="javascript" type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script language="javascript" type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/script.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/jquery.lightbox-0.5.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/script.js" charset="utf-8"></script>
+<script src="js/jquery.lightbox-0.5.min.js"></script>
 
-<script language="javascript" type="text/javascript">
+<script>
 $(function() {
   $('#gallery a').lightBox();
 });
@@ -74,7 +74,7 @@ $(function() {
 var map;
 /* google map */
 $(document).ready(function(){
-	$("#contact").click(function(){
+	$("#head_access").click(function(){
 		var latlng = new google.maps.LatLng(35.499466 , 139.407067);
 		var opts = {
 			zoom: 17,
@@ -90,10 +90,12 @@ $(document).ready(function(){
 			title: 'Here'
 		});
 	});
-	$("#gal").click(function(){
+	// change min-width
+	$("#head_gal").click(function(){
 		 $('#Wrapper').css( 'min-width', '100px');
 	});
-	$("#top,#menu,#contact").click(function(){
+	// fix min-width
+	$("#head_top,#head_menu,#head_access,#head_contact").click(function(){
 		 $('#Wrapper').css( 'min-width', '1000px');
 	});
 });
@@ -128,18 +130,39 @@ EOS
 }
 
 sub body {
-	my $body =<<'EOS';
+	my $imgBasePath='images/original/';
+	my $img =[
+		# List of pictuture
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg",
+		"20130713044734.jpg"
+	];
+	my $w="170px"; my $h="260px";
+	my $galHtml;
+	for (@{$img}) {
+		my $imgPath=$imgBasePath.$_;
+		$galHtml.="<li><a href=\"$imgPath\"><img src=\"$imgPath\" alt=\"\" style=\"width: $w;  height:$h;\"></a></li>";
+	}
+	my $body =<<"EOS";
 <body>
 <div id="Wrapper">
         <div id=firstline>秋葉原のプライベートネイルサロン「Cradle（クレイドル）」です。</div>
         <div id="Contents">
-		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　XX駅より、徒歩３分　Tel:03-6206-0947</span></div>
+		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　相武台駅より、徒歩３分　Tel:03-6206-0947</span></div>
 		<div id="tabs">
 			<ul id="tabs_navie_original">
-				<li id="top"><a href="#tab1">Top</a></li>
-				<li id="menu"><a href="#tab2">Menu</a></li>
-				<li id="gal"><a href="#tab3">Gallery</a></li>
-				<li id="contact"><a href="#tab4">Contact</a></li>
+				<li id="head_top">     <a href="#tab1">Top</a></li>
+				<li id="head_menu">    <a href="#tab2">Menu</a></li>
+				<li id="head_gal">     <a href="#tab3">Gallery</a></li>
+				<li id="head_access">  <a href="#tab4">Access</a></li>
+				<li id="head_contact"> <a href="#tab5">Contact</a></li>
 			</ul>
 
 			<div id="tab1">
@@ -148,8 +171,6 @@ sub body {
 				<img src="images/original/head_img.jpg" alt="" class="photo01">
 				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
 				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
-
-
 			</div>
 			<div id="tab2">
 				<table id="menuplan"> 
@@ -171,18 +192,7 @@ sub body {
 								<div class="inner3">
 									<div id="main">
 										<ul id="gallery">
-											<li><a href="images/pl01.jpg"><img src="images/p01.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl02.jpg"><img src="images/p02.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl03.jpg"><img src="images/p03.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl04.jpg"><img src="images/p04.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl05.jpg"><img src="images/p05.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl06.jpg"><img src="images/p06.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl07.jpg"><img src="images/p07.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl08.jpg"><img src="images/p08.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl09.jpg"><img src="images/p09.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl10.jpg"><img src="images/p10.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl11.jpg"><img src="images/p11.jpg" alt="" width="180" height="135"></a></li>
-											<li><a href="images/pl12.jpg"><img src="images/p12.jpg" alt="" width="180" height="135"></a></li>
+											$galHtml
 										</ul>
 									</div>
 								</div>
@@ -198,20 +208,19 @@ sub body {
 				</div>
 				<div id="gmap_canvas"></div>
 				<div id="access">
-				<p>Access</p>
-				<br>
-				<br>
-				<br>
-				<p>Adress: 千代田区外神田4-9-7
-				<br>JR線「秋葉原」駅電気街口徒歩5分</p>
-				<p>Tel:1234-56789</p>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+					<br>
+					<br>
+					<br>
+					<div id="Adress">Adress:
+						<br>神奈川県相模原市南区相武台1-25-4 マキアージュ302
+					</div>
+					<div id="Access">Access:
+						<br>小田急線「相武台」駅XX口徒歩5分
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
 				</div>
 			</div>
 		</div>
@@ -220,28 +229,6 @@ sub body {
 </body>
 </html>
 EOS
-=pod
-	<!-- Header -->
-	<div id="header">
-		<noscript>
-		<p>ブラウザの設定で、JavaScriptを、有効にして下さい。</p>
-		</noscript>
-		<h1>これはみだし</h1>
-	</div>
-	<!-- Heaer end -->
-
-	<!-- Main -->
-	<div id="main">
-		<p>AAAAAAAAAAA</p>
-	</div>
-	<!-- Main end -->
-
-	<!-- Footer -->
-	<div id="footer">
-		<h1>FOOTER</h1>
-	</div>
-	<!-- Footer end -->
-=cut
 	return $body;
 }
 
