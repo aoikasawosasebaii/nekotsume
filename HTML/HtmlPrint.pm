@@ -15,6 +15,12 @@ sub css {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 		background-color:rgb(146, 70, 19); 
 	}
+	.photo01 {
+		width:100%;
+		height:200px;
+	}
+	.photo02 {
+	}
 	#firstline {
 		color: rgb(228, 191, 75);
 	}
@@ -23,13 +29,13 @@ sub css {
 	}
 	#menuplan {
 	}
-	.center_ph {
-		text-align:center;
-	}
 	#title { 
 		color:rgb(1, 1, 1);
 		text-align: left; 
 		font-weight:bold;
+	}
+	#cp {
+		text-align: right; 
 	}
 	#tel { 
 		float: right; 
@@ -153,9 +159,9 @@ sub body {
 	my $body =<<"EOS";
 <body>
 <div id="Wrapper">
-        <div id=firstline>秋葉原のプライベートネイルサロン「Cradle（クレイドル）」です。</div>
+        <div id=firstline>（このページは作成中のページです）おしゃれなプライベートサロンでくつろげるネイルサロン ねこつめです。</div>
         <div id="Contents">
-		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　相武台駅より、徒歩３分　Tel:03-6206-0947</span></div>
+		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　相武台駅より、徒歩３分　Tel:XXX-XXXX-XXXX</span></div>
 		<div id="tabs">
 			<ul id="tabs_navie_original">
 				<li id="head_top">     <a href="#tab1">Top</a></li>
@@ -166,11 +172,8 @@ sub body {
 			</ul>
 
 			<div id="tab1">
-				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
-				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
+				<p>プライベートサロンなので、周りを気にせずおくつろぎください。</p>
 				<img src="images/original/head_img.jpg" alt="" class="photo01">
-				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
-				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
 			</div>
 			<div id="tab2">
 				<table id="menuplan"> 
@@ -202,10 +205,8 @@ sub body {
 				</div>
 			</div>
 			<div id="tab4">
-				<p>お客さまひとりひとりに合わせたカウンセリング、ケア、アート等のご提案をさせていただきます。 プライベートサロンなので、周りを気にせずゆっくりとおくつろぎください。</p>
-				<div class="center_ph">
-				<img src="images/original/head_img.jpg" alt="" class="ph10">
-				</div>
+				<p>プライベートサロンなので、周りを気にせずおくつろぎください。</p>
+				<img src="images/original/head_img.jpg" alt="" class="photo02">
 				<div id="gmap_canvas"></div>
 				<div id="access">
 					<br>
@@ -221,10 +222,19 @@ sub body {
 					<br>
 					<br>
 					<br>
+					<br>
+					<br>
 				</div>
+			</div>
+			<div id="tab5">
+				<!-- FC2RetalForm Start -->
+<script type="text/javascript" src="http://form1.fc2.com/parts/index.php?id=860480"></script>
+<noscript><a href="http://form1.fc2.com/form/?id=860480" target="_blank">[FC2メールフォーム]</a></noscript>
+<!-- FC2RetalForm End   -->
 			</div>
 		</div>
 	</div>
+	<div id="cp">© 2013- Shouhei ito.</div>
 </div>
 </body>
 </html>
