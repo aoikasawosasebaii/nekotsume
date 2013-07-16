@@ -7,14 +7,17 @@
 <meta name="description" content="説明文・概要">
 
 <title>ネイルサロン〜ねこのつめとぎ〜</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/tabs.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.min.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css">
-<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/south-street/jquery-ui-1.10.3.custom.min.css">
 <style type="text/css">
 	body {
 		font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 		background-color:rgb(146, 70, 19); 
+	}
+	#Contents {
+		visibility:hidden;
 	}
 	.photo01 {
 		width:100%;
@@ -58,26 +61,28 @@
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="js/script.js" charset="utf-8"></script>
 <script src="js/jquery.lightbox-0.5.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <script>
 $(function() {
-  $('#gallery a').lightBox();
+	$('#gallery a').lightBox();
 });
-
 (function($){
-        $(function(){
-                $('#tabs').tabs();
-        }); 
+	$(function(){
+		$('#tabs').tabs();
+	}); 
 })(jQuery);
 
-var map;
 /* google map */
+var map;
 $(document).ready(function(){
+	$(function() {
+		$('#Contents').css("visibility","visible");
+	});
 	$("#head_access").click(function(){
 		var latlng = new google.maps.LatLng(35.499466 , 139.407067);
 		var opts = {
