@@ -79,12 +79,14 @@ $(function() {
 	}); 
 })(jQuery);
 
-/* google map */
-var map;
 $(document).ready(function(){
 	$(function() {
-		$('#Contents').css("visibility","visible");
+		//$('#Contents').css("visibility","visible");
+		$('#Contents').css("visibility","visible").hide().fadeIn("slow");
 	});
+
+	/* google map */
+	var map;
 	$("#head_access").click(function(){
 		var latlng = new google.maps.LatLng(35.499466 , 139.407067);
 		var opts = {
@@ -101,6 +103,8 @@ $(document).ready(function(){
 			title: 'Here'
 		});
 	});
+	/* google map end */
+
 	// change min-width
 	$("#head_gal").click(function(){
 		 $('#Wrapper').css( 'min-width', '100px');
@@ -110,7 +114,6 @@ $(document).ready(function(){
 		 $('#Wrapper').css( 'min-width', '1000px');
 	});
 });
-/* google map end */
 </script>
 EOS_JS
 	return $js;
@@ -169,11 +172,11 @@ sub body {
 		<div id="title">ジェルネイル専門　ねこのつめとぎ<span id="tel">小田急線　相武台駅より、徒歩３分　Tel:XXX-XXXX-XXXX</span></div>
 		<div id="tabs">
 			<ul id="tabs_navie_original">
-				<li id="head_top">     <a href="#tab1">Top</a></li>
-				<li id="head_menu">    <a href="#tab2">Menu</a></li>
-				<li id="head_gal">     <a href="#tab3">Gallery</a></li>
-				<li id="head_access">  <a href="#tab4">Access</a></li>
-				<li id="head_contact"> <a href="#tab5">Contact</a></li>
+				<li id="head_top"><a href="#tab1">Top</a></li>
+				<li id="head_menu"><a href="#tab2">Menu</a></li>
+				<li id="head_gal"><a href="#tab3">Gallery</a></li>
+				<li id="head_access"><a href="#tab4">Access</a></li>
+				<li id="head_contact"><a href="#tab5">Contact</a></li>
 			</ul>
 
 			<div id="tab1">
